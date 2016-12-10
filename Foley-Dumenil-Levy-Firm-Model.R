@@ -5,7 +5,7 @@
 # Department of Economics
 # Middle East Technical University
 # Ankara Turkey
-# www.metu.edu.tr/~etaymaz/nwm
+# github.com/etaymaz
 # 24 July 2015
 
 # Load libraries
