@@ -38,19 +38,19 @@ setPara <- function(setSeed=FALSE) {
   # Parameter setting function
   if (setSeed==TRUE) set.seed(123)
 
-    searchTech   <<-  0.025,           # Search span for new technologies
-    biasL        <<- -0.005,           # Rate of labor-saving bias
-    biasK        <<- -0.005,           # Rate of capital-saving bias
-    d            <<- 0.08,             # Depreciation rate
-    wrate        <<- 0.03,              # Unemployment wage effect
-    wratemax     <<- 0.005,             # Full employment wage increase
-    popGr        <<- 0.01,             # Population growth rate
-    Beta         <<- 0.5               # Capitalists' investment tendency
+    searchTech   <<- 0.025            # Search span for new technologies
+    biasL        <<- -0.005           # Rate of labor-saving bias
+    biasK        <<- -0.00            # Rate of capital-saving bias
+    d            <<- 0.08             # Depreciation rate
+    wrate        <<- 0.03             # Unemployment wage effect
+    wratemax     <<- 0.005            # Full employment wage increase
+    popGr        <<- 0.01             # Population growth rate
+    Beta         <<- 0.5              # Capitalists' investment tendency
   }
 
 initializeMV <- function(ww, nFirm) {
   # Initialize the model
-  fData <<-data.table(id=c(1:nf))
+  fData <<- data.table(id=c(1:nFirm))
   fData[, A := rep(1, nFirm)]                      # Capital productivity, Q/K
   fData[, L := rep(1, nFirm)]                      # Labor productivity, Q/N
   fData[, K := rep(1, nFirm)]                      # Capital stock
@@ -95,8 +95,8 @@ iterate <- function(nTime) {
   Q <<- pmin(A*K, L*N)
   # cat(sum(Ndes), " ", sum(N), "", Pop, "\n")
   # w <<- w*(1+max(wratemax + wrate*log(sum(N)/Pop), 0))   # Flexible wage share model
-  # w <<- w*mean(lChange)                                # Constant wage share model
-  w <<- w*lChange                                      # Constant firm-level wage share model
+  # w <<- w*mean(lChange)                                  # Constant wage share model
+  w <<- w*lChange                                          # Constant firm-level wage share model
   Pop <<- Pop*(1+popGr)
 
 
