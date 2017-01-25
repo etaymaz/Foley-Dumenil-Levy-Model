@@ -4,7 +4,7 @@
 # Erol Taymaz
 # Department of Economics
 # Middle East Technical University
-# Ankara Turkey
+# Ankara 06800 Turkey
 # github.com/etaymaz
 # 24 July 2015
 
